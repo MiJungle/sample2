@@ -22,8 +22,16 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "index.html",
+      inject: true,
+      chunks: ['index'],
+      filename: 'index.html'
     }),
-
+    new HtmlWebpackPlugin({
+      template: '/auth/login.html',
+      inject: true,
+      chunks: ['index'],
+      filename: 'login.html'
+    }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
