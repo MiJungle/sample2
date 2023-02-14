@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta
+            http-equiv="Content-Security-Policy"
+            content="upgrade-insecure-requests"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="login.css" />
+</head>
+<body>
+<div class="container">
+    <img class="login-logo" src="/img/medilogo.png" />
+    <h2>반갑습니다!</h2>
+    <input class="login-email" placeholder="아이디를 입력해 주세요." />
+    <input class="login-pwd" placeholder="비밀번호를 입력해 주세요." />
+    <div class="auto-login">
+        <input type="checkbox" />
+        <div>자동 로그인</div>
+    </div>
+    <button class="login-button" onclick="sendLoginInfo()">로그인</button>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript"></script>
+<script>
+    function sendLoginInfo() {
+        const email = $(".login-email").val();
+        const pwd = $(".login-pwd").val();
+        const loginInfo = { email: email, password: pwd };
+        console.log("email", email);
+        console.log("password", pwd);
+        try {
+            window.webkit.messageHandlers.login.postMessage(loginInfo);
+        } catch (err) {
+            console.log("error");
+        }
+    }
+    function getLoginInfo(jsonData) {
+        console.log("함수가 호출되었습니다.");
+        const status = JSON.parse(jsonData);
+        console.log(status);
+        confirm(status);
+    }
+</script>
+</body>
+</html>
