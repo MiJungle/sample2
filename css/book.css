@@ -1,0 +1,29 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+@media only screen and (min-width: 1280px) {
+  #books {
+    margin: 20px;
+    justify-content: center;
+  }
+}
+
+div.page-title {
+  display: flex;
+  background-color: orange;
+}
+#books {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+  padding: 3pt 0;
+  background-color: whitesmoke;
+  height: 18pt;
+  margin: 5pt 0;
+}

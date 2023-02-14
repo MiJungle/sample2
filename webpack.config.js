@@ -11,9 +11,15 @@ const stylesHandler = isProduction
   : "style-loader";
 
 const config = {
-  entry: "./src/index.js",
+  entry: {
+    index: "./js/index.js",
+    book: "./js/book.js",
+    login: "./js/login.js",
+    product: "./js/product-detail.js",
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: "js/[name].js",
   },
   devServer: {
     open: true,
@@ -23,14 +29,26 @@ const config = {
     new HtmlWebpackPlugin({
       template: "index.html",
       inject: true,
-      chunks: ['index'],
-      filename: 'index.html'
+      chunks: ["index"],
+      filename: "index.html",
     }),
     new HtmlWebpackPlugin({
-      template: '/auth/login.html',
+      template: "/template/login.html",
       inject: true,
-      chunks: ['index'],
-      filename: 'login.html'
+      chunks: ["index"],
+      filename: "template/login.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "/template/book.html",
+      inject: true,
+      chunks: ["index"],
+      filename: "template/book.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "/template/product-detail.html",
+      inject: true,
+      chunks: ["index"],
+      filename: "template/product-detail.html",
     }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
