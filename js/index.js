@@ -1,3 +1,5 @@
+import "../css/index.css";
+
 window.getName = () => {
   alert("로그인 성공");
   console.log("getName 실행");

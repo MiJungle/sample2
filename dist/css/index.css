@@ -1,0 +1,76 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.wrap-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.menu {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.items {
+  margin-top: 10px;
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.info {
+  width: 47vw;
+}
+img.item {
+  width: 47vw;
+}
+
+h1.logo {
+  display: flex;
+  justify-content: center;
+}
+button.login {
+  width: 5rem;
+  background-color: lightcoral;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 30px;
+  color: white;
+  font-size: 12pt;
+  border: none;
+}
+
+button.search {
+  width: 5rem;
+  background-color: lightgreen;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 30px;
+  color: white;
+  font-size: 12pt;
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+.menu input {
+  width: 200px;
+  height: 60px;
+  padding: 0 10px;
+  font-size: 12pt;
+}
+
+.btn {
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+}
+

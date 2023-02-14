@@ -50,6 +50,7 @@ const config = {
       chunks: ["index"],
       filename: "template/product-detail.html",
     }),
+    // new MiniCssExtractPlugin({ filename: "app.css" }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
@@ -60,8 +61,8 @@ const config = {
         loader: "babel-loader",
       },
       {
-        test: /\.css$/i,
-        use: [stylesHandler, "css-loader", "postcss-loader"],
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -74,11 +75,18 @@ const config = {
   },
 };
 
+// module.exports = {
+//   plugins: [new MiniCssExtractPlugin()],
+// };
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
 
-    config.plugins.push(new MiniCssExtractPlugin());
+    config.plugins.push(
+      new MiniCssExtractPlugin({
+        filename: "css/[name].css",
+      })
+    );
   } else {
     config.mode = "development";
   }

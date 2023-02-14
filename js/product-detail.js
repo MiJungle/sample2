@@ -1,3 +1,5 @@
+import "../css/login.css";
+
 window.handleAddCart = () => {
   const addCartMessage = "장바구니에 추가되었습니다.";
   confirm(addCartMessage);

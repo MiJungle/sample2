@@ -1,3 +1,5 @@
+import "../css/login.css";
+
 window.sendLoginInfo = () => {
   const email = $(".login-email").val();
   const pwd = $(".login-pwd").val();

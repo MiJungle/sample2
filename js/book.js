@@ -1,3 +1,5 @@
+import "../css/book.css";
+
 window.getBookData = () => {
   const receivedQuery = JSON.parse(localStorage.getItem("searchQuery"));
   const REST_API_KEY = "37b97e7c16e1ed8a39ab8f1a96fc4360";
