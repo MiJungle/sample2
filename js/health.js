@@ -65,26 +65,58 @@ window.getJson = () => {
 getJson();
 console.log("health 페이지 입니다. ");
 
-// const getUserInfo = () => {
-//   $.ajax({
-//     method: "POST",
-//     url: URL,
-//     headers: {
-//       svcInfo:
-//         "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
-//     },
-//     data: {
-//       memberId: "mpsdev",
-//       memberPw: "qaz123!@",
-//       pushToken: "",
-//     },
-//     success: function (data) {
-//       console.log("api", data);
-//     },
-//     error: function () {
-//       alert("failed");
-//     },
-//   });
-// };
-
+console;
+const getAPIUserInfo = () => {
+  $.ajax({
+    method: "POST",
+    url: `/api/v1/auth/login`,
+    headers: {
+      svcInf:
+        "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
+      "Content-Type": "application/json",
+    },
+    data: {
+      memberId: "mpsdev",
+      memberPw: "qaz123!@",
+      pushToken: "",
+    },
+    success: function (data) {
+      console.log("api", data);
+    },
+    error: function () {
+      alert("failed");
+    },
+  });
+};
+getAPIUserInfo();
 // json file
+
+// async function postData(url = "", data = {}) {
+//     // Default options are marked with *
+//     const response = await fetch(url, {
+//       method: "POST", // *GET, POST, PUT, DELETE, etc.
+//       headers: {
+//         svcInfo:
+//           "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
+//         "Content-Type": "application/json",
+//         // 'Content-Type': 'application/x-www-form-urlencoded',
+//       },
+//       success: function (data) {
+//         console.log("api", data);
+//       },
+//       error: function () {
+//         alert("failed");
+//       },
+//       body: JSON.stringify(data), // body data type must match "Content-Type" header
+
+//     });
+//     return response.json(); // parses JSON response into native JavaScript objects
+//   }
+
+//   postData("https://devapi.secondwind.co.kr:443//api/v1/auth/login", {
+//     memberId: "mpsdev",
+//     memberPw: "qaz123!@",
+//     pushToken: "",
+//   }).then((data) => {
+//     console.log(data); // JSON data parsed by `data.json()` call
+//   });
