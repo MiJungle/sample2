@@ -3,6 +3,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -57,6 +58,13 @@ const config = {
       chunks: ["index"],
       filename: "template/health.html",
     }),
+    new CopyPlugin({
+      patterns: [
+        { from: "json/health.json", to: "json/health.json" },
+        { from: "json/login1.json", to: "json/login1.json" },
+        { from: "json/login2.json", to: "json/login2.json" },
+      ],
+    }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
@@ -77,7 +85,6 @@ const config = {
           name: "[path][name].[ext]",
         },
       },
-      { test: /\.json$/, type: "json" },
       // Add your rules for custom modules here
       // Learn more about loaders from https://webpack.js.org/loaders/
     ],
