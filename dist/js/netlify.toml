@@ -1,1 +1,6 @@
-/api/*  https://api.example.com/:splat  200
+[[redirects]]
+from = "/proxy/*"
+to = "https://devapi.secondwind.co.kr/:splat"
+status = 200
+force = true
+
