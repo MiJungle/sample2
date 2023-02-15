@@ -13,7 +13,7 @@ const stylesHandler = isProduction
 const config = {
   entry: {
     index: "./js/index.js",
-    book: "./js/book.js",
+    book: "./js/health.json.js",
     login: "./js/login.js",
     dp: "./js/dp.js",
   },
@@ -39,10 +39,10 @@ const config = {
       filename: "template/login.html",
     }),
     new HtmlWebpackPlugin({
-      template: "/template/book.html",
+      template: "/template/health.json.html",
       inject: true,
       chunks: ["index"],
-      filename: "template/book.html",
+      filename: "template/health.json.html",
     }),
     new HtmlWebpackPlugin({
       template: "/template/dp.html",
