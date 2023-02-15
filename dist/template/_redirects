@@ -1,5 +1,3 @@
-[[redirects]]
-  from = "https://chipper-blini-76e4ec.netlify.app"
-  to = "https://devapi.secondwind.co.kr:443/api/:splat"
-  status = 301
-  force = false
+https://chipper-blini-76e4ec.netlify.app https://devapi.secondwind.co.kr:443//:splat 200
+
+/* /index.html 200

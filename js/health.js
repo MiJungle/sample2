@@ -69,7 +69,7 @@ console;
 const getAPIUserInfo = () => {
   $.ajax({
     method: "POST",
-    url: `/api/v1/auth/login`,
+    url: `https://devapi.secondwind.co.kr:443//api/v1/auth/login`,
     headers: {
       svcInf:
         "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
