@@ -1,0 +1,10 @@
+[[redirects]]
+from ="/"
+to ="https://devapi.secondwind.co.kr"
+status=301
+
+[[redirects]]
+from ="/template/health.html"
+to ="https://devapi.secondwind.co.kr"
+status=301
+
