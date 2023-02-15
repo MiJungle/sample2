@@ -23,7 +23,8 @@ window.getJson = () => {
 console.log("health 페이지 입니다. ");
 
 const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
-const URL = `${PROXY}/api/v1/auth/login.json`;
+const URL = `${PROXY}:443//api/v1/auth/login`;
+
 const getUserInfo = () => {
   $.ajax({
     method: "POST",

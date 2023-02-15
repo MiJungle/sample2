@@ -1,5 +1,5 @@
 [[redirects]]
 from = "/proxy/*"
-to = "https://api url/:splat"
+to = "https://chipper-blini-76e4ec.netlify.app/:splat"
 status = 200
 force = true
