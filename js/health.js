@@ -22,6 +22,7 @@
 window.getUserInfo = () => {
   $.ajax({
     method: "POST",
+    crossOrigin: true,
     url: "https://devapi.secondwind.co.kr:443//api/v1/auth/login",
     headers: {
       svcInfo:
