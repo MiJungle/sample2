@@ -20,8 +20,8 @@ window.getJson = () => {
 };
 
 // getJson();
-
-window.getUserInfo = () => {
+console.log("health 페이지 입니다. ");
+const getUserInfo = () => {
   $.ajax({
     method: "POST",
     mode: "cors",
