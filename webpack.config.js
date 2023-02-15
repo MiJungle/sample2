@@ -15,7 +15,7 @@ const config = {
     index: "./js/index.js",
     book: "./js/book.js",
     login: "./js/login.js",
-    product: "./js/product-detail.js",
+    dp: "./js/dp.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -45,12 +45,11 @@ const config = {
       filename: "template/book.html",
     }),
     new HtmlWebpackPlugin({
-      template: "/template/product-detail.html",
+      template: "/template/dp.html",
       inject: true,
       chunks: ["index"],
-      filename: "template/product-detail.html",
+      filename: "template/dp.html",
     }),
-    // new MiniCssExtractPlugin({ filename: "app.css" }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
@@ -66,7 +65,10 @@ const config = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: "asset",
+        loader: "file-loader",
+        options: {
+          name: "[path][name].[ext]",
+        },
       },
 
       // Add your rules for custom modules here

@@ -1,4 +1,5 @@
 import "../css/login.css";
+import "../img/medilogo.png";
 
 window.sendLoginInfo = () => {
   const email = $(".login-email").val();

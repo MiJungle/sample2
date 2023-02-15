@@ -1,4 +1,4 @@
-import "../css/login.css";
+import "../css/dp.css";
 
 window.handleAddCart = () => {
   const addCartMessage = "장바구니에 추가되었습니다.";
