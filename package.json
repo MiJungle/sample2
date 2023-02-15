@@ -41,7 +41,5 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
-  "dependencies": {
-    "http-proxy-middleware": "^2.0.6"
-  }
+  "dependencies": {}
 }
