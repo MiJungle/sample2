@@ -1,6 +1,6 @@
 import "../css/book.css";
-// import "../img/book.svg";
-// import "../img/nothumbnail.svg";
+import "../img/book.svg";
+import "../img/nothumbnail.svg";
 
 window.getBookData = () => {
   const receivedQuery = JSON.parse(localStorage.getItem("searchQuery"));
