@@ -26,7 +26,7 @@ window.getUserInfo = () => {
     method: "POST",
     mode: "cors",
     crossOrigin: true,
-    url: "https://devapi.secondwind.co.kr:443//proxy/api/v1/auth/login",
+    url: "/api/v1/auth/login",
     headers: {
       svcInfo:
         "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
