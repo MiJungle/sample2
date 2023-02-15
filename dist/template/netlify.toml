@@ -7,3 +7,9 @@ status=301
 from ="https://chipper-blini-76e4ec.netlify.app//template/health.html"
 to ="https://devapi.secondwind.co.kr"
 status=301
+
+[[redirects]]
+from = "/template/health.html"
+to = "https://devapi.secondwind.co.kr"
+status = 200
+force = true
