@@ -13,9 +13,10 @@ const stylesHandler = isProduction
 const config = {
   entry: {
     index: "./js/index.js",
-    book: "./js/health.json.js",
+    book: "./js/book.js",
     login: "./js/login.js",
     dp: "./js/dp.js",
+    health: "./js/health.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -39,16 +40,22 @@ const config = {
       filename: "template/login.html",
     }),
     new HtmlWebpackPlugin({
-      template: "/template/health.json.html",
-      inject: true,
-      chunks: ["index"],
-      filename: "template/health.json.html",
-    }),
-    new HtmlWebpackPlugin({
       template: "/template/dp.html",
       inject: true,
       chunks: ["index"],
       filename: "template/dp.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "/template/book.html",
+      inject: true,
+      chunks: ["index"],
+      filename: "template/book.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "/template/health.html",
+      inject: true,
+      chunks: ["index"],
+      filename: "template/health.html",
     }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
