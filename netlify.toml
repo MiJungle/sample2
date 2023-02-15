@@ -1,5 +1,0 @@
-[[redirects]]
-from = "/proxy/*"
-to = "https://chipper-blini-76e4ec.netlify.app/:splat"
-status = 200
-force = true

@@ -1,0 +1,3 @@
+/api/* https://devapi.secondwind.co.kr:443/api/:splat 200
+
+/* /index.html 200
