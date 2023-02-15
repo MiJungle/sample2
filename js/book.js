@@ -15,7 +15,7 @@ window.getBookData = () => {
       Authorization: `KakaoAK ${REST_API_KEY}`,
     },
     success: function (data) {
-      // console.log(data)
+      console.log(data);
       $.each(data.documents, function (index, item) {
         // 데이터 =item
         const thumbnail = `<img class="book-thumbnail" src=${item.thumbnail} alt="/public/images/nothumbnail.svg"/>`;
