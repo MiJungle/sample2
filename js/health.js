@@ -24,10 +24,10 @@ window.getUserInfo = () => {
     method: "POST",
     crossOrigin: true,
     url: "https://devapi.secondwind.co.kr:443//api/v1/auth/login",
+    dataType: "application/x-www-form-urlencoded",
     headers: {
       svcInfo:
         "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
-      "Content-Type": "application/json",
     },
     data: {
       memberId: "mpsdev",
