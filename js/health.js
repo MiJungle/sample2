@@ -52,7 +52,7 @@ window.getJson = async () => {
         const publisher = `<div class="publisher">출판사: ${item.publisher}</div>`;
         $(
           "#book-container"
-        ).append(`<div class="book" onclick="window.location.href='${item.url}';">
+        ).append(`<div class="book" onclick="navigate(${item.url});">
                        ${title} ${publisher} ${price} ${content}
                          </div>`); //
       });

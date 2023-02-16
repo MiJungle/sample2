@@ -26,7 +26,7 @@ window.getBookData = () => {
         $("#books").append(`
                         <div class="book"
                             style="width:45vw ;display: flex; flex-wrap:wrap; gap:3px ; align-items:center; flex-direction:column;"
-                            onclick="window.location.href='${item.url}';">
+                            onclick="navigate(${item.url});">
                         ${thumbnail} ${title} ${book_contents}
                         </div>`); //
       });

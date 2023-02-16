@@ -1,5 +1,9 @@
 import "../css/index.css";
 
+window.navigate = (link = "") => {
+  location.href = link;
+};
+
 window.getName = () => {
   alert("로그인 성공");
   console.log("getName 실행");
@@ -32,6 +36,6 @@ window.sendEmail = () => {
 window.handleSearch = () => {
   let searchQuery = $("#search").val();
   localStorage.setItem("searchQuery", JSON.stringify(searchQuery));
-  location.href = `../template/book.html`;
+  navigate(`../template/book.html`);
   $("#search").val("");
 };

@@ -18,7 +18,7 @@ window.getLoginInfo = (jsonData) => {
   const status = JSON.parse(jsonData);
   let userStatus = status["statusCode"];
   if (userStatus == "200") {
-    location.href = "../index.html";
+    navigate("../index.html");
   }
   console.log("statusCode", userStatus);
   confirm(userStatus);
