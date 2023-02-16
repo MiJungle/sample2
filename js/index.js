@@ -28,6 +28,7 @@ window.sendEmail = () => {
     console.log("error");
   }
 };
+
 window.handleSearch = () => {
   let searchQuery = $("#search").val();
   localStorage.setItem("searchQuery", JSON.stringify(searchQuery));

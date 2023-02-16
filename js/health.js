@@ -1,69 +1,71 @@
 const loginURL = `../json/login2.json`;
-import login1 from "../json/login1.json";
-const { login } = require("../json/login1.json");
+// import login1 from "../json/login1.json" assert { type: "json" };
+// const { login } = require("../json/login1.json");
+import "../css/health.css";
+import "../img/magnifying-glass.svg";
+import "../img/person.svg";
 
-window.getUserInfo = () => {
-  console.log(login1);
-  $.ajax({
+window.getUserInfo = async () => {
+  // console.log(login1); //json 아예 import 해서 사용하는 방법
+  await $.ajax({
     method: "GET",
     url: loginURL,
     success: function (data) {
       console.log("login 데이터입니다", data);
-      if (data.status === 200) console.log("로그인 성공");
-      alert("로그인 성공!");
+      if (data.status === "200") {
+        $("#health").append(
+          `<div class="greeting">
+                <div class="name">${data.body.memberName}</div>
+                <div>님 환영합니다!</div>
+           </div>`
+        );
+        alert("로그인 성공!");
+      }
     },
     error: function () {
       alert("회원 정보를 다시 확인해주세요!");
     },
   });
 };
-getUserInfo();
 
 const jsonURL = "../json/health.json";
 
-window.getJson = () => {
-  $.ajax({
+window.getJson = async () => {
+  await $.ajax({
     method: "GET",
     url: jsonURL,
     success: function (data) {
       const books = data.documents;
       console.log(books);
+      $("#health").after(
+        "<div class='sub-title'><img src='../img/magnifying-glass.svg' style='width:30px; height:20px;' alt='logo'/>책 검색 결과</div><div id='book-container'></div>"
+      );
       $.each(books, function (index, item) {
-        // 데이터 =item
         const thumbnail = `<img class="book-thumbnail" src=${item.thumbnail} alt="/public/images/nothumbnail.svg"/>`;
-        const title = `<div class="book-title" style="font-weight: bold; text-align: center;">${item.title}</div>`;
-        const book_contents = `<div class="book-contents">${item.contents}...</div>`;
-        $("#health").append(`
-                        <div class="book"
-                            style="width:45vw ;display: flex; flex-wrap:wrap; gap:3px ; align-items:center; flex-direction:column;"
-                            onclick="window.location.href='${item.url}';">
-                        ${thumbnail} ${title} ${book_contents}
-                        </div>`); //
+        const title = `<div class="book-title" style="font-weight: bold;">${wrapText(
+          item.title
+        )}</div>`;
+        const content = `<div class="book-content">내용 ${wrapText(
+          item.contents
+        )}...</div>`;
+        const price = `<div class="book-price">가격: ${item.price}</div>`;
+        const publisher = `<div class="publisher">출판사: ${item.publisher}</div>`;
+        $(
+          "#book-container"
+        ).append(`<div class="book" onclick="window.location.href='${item.url}';">
+                       ${title} ${publisher} ${price} ${content}
+                         </div>`); //
       });
     },
     error: function () {
       alert("데이터를 불러올 수 없습니다.");
     },
   });
-  //바로 import 사용시
-  // console.log(JSON.parse(health));
-  // const data = health.documents;
-  // $.each(data, function (index, key, value, item) {
-  //   // 데이터 =item
-  //   console.log(key, value);
-  //   const thumbnail = `<img class="book-thumbnail" src=${item.thumbnail} alt="/public/images/nothumbnail.svg"/>`;
-  //   const title = `<div class="book-title" style="font-weight: bold; text-align: center;">${item.title}</div>`;
-  //   const book_contents = `<div class="book-contents">${item.contents}...</div>`;
-  //   $("#health").append(`
-  //                       <div class="book"
-  //                           style="width:45vw ;display: flex; flex-wrap:wrap; gap:3px ; align-items:center; flex-direction:column;"
-  //                           onclick="window.location.href='${item.url}';">
-  //                       ${thumbnail} ${title} ${book_contents}
-  //                       </div>`); //
 };
 
-getJson();
-console.log("health 페이지 입니다. ");
+window.wrapText = (text) => {
+  return text.slice(0, 20);
+};
 
 // const getUserInfo = () => {
 //   $.ajax({
@@ -88,3 +90,43 @@ console.log("health 페이지 입니다. ");
 // };
 
 // json file
+
+window.getAllEmployees = () => {
+  console.log("실행");
+  $.ajax({
+    url: "../json/login3.json",
+    method: "GET",
+    success: function (data) {
+      $("#health").after("<table id='mytable'></table>");
+      $("#mytable").before(
+        "<div class='sub-title'> <img src='../img/person.svg' alt='logo' style='width:30px; height:20px;';/>회원 조회 결과</div>"
+      );
+      $("#mytable").append("<thead class='thead'></thead>");
+      $.each(data.members[0], function (key, value) {
+        $(".thead").append($("<th>").text(key));
+      });
+      $.each(data.members, function (index, member) {
+        $("<tr>")
+          .append(
+            $("<td>").text(member.memberBirth),
+            $("<td>").text(member.memberHeight),
+            $("<td>").text(member.memberWeight),
+            $("<td>").text(member.memberAge)
+          )
+          .appendTo("#mytable");
+      });
+    },
+    error: function (err) {
+      console.log("오류남");
+      alert(err);
+    },
+  });
+};
+
+window.health = async () => {
+  getUserInfo();
+  await getJson();
+  await getAllEmployees();
+};
+
+health();

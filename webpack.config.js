@@ -59,11 +59,7 @@ const config = {
       filename: "template/health.html",
     }),
     new CopyPlugin({
-      patterns: [
-        { from: "json/health.json", to: "json/health.json" },
-        { from: "json/login1.json", to: "json/login1.json" },
-        { from: "json/login2.json", to: "json/login2.json" },
-      ],
+      patterns: [{ from: "json", to: "json" }],
     }),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/

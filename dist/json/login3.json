@@ -1,0 +1,41 @@
+{
+  "status": "200",
+  "members": [
+    {
+      "memberBirth": "19900307",
+      "memberHeight": "183",
+      "memberWeight": "77",
+      "memberAge": "34"
+    },
+    {
+      "memberBirth": "19880307",
+      "memberHeight": "163",
+      "memberWeight": "57",
+      "memberAge": "24"
+    },
+    {
+      "memberBirth": "19910307",
+      "memberHeight": "183",
+      "memberWeight": "77",
+      "memberAge": "34"
+    },
+    {
+      "memberBirth": "20010307",
+      "memberHeight": "177",
+      "memberWeight": "77",
+      "memberAge": "30"
+    },
+    {
+      "memberBirth": "19880307",
+      "memberHeight": "163",
+      "memberWeight": "57",
+      "memberAge": "24"
+    },
+    {
+      "memberBirth": "19910307",
+      "memberHeight": "183",
+      "memberWeight": "77",
+      "memberAge": "34"
+    }
+  ]
+}
