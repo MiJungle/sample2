@@ -6,6 +6,7 @@ import "../img/magnifying-glass.svg";
 import "../img/person.svg";
 
 window.callGetJson = () => {
+  console.log("callGetJson");
   $.getJSON("../json/health.json", function (data) {
     var items = [];
     $.each(data.documents, function (key, val) {
@@ -15,7 +16,7 @@ window.callGetJson = () => {
     $("<ul/>", {
       class: "my-new-list",
       html: items.join(""),
-    }).appendTo("#book-container");
+    }).appendTo("#health");
   });
 };
 
