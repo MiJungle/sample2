@@ -10,7 +10,7 @@ window.callGetJson = () => {
   $.getJSON("../json/health.json", function (data) {
     var items = [];
     $.each(data.documents, function (key, val) {
-      console.log(key, value);
+      console.log(key, val);
       items.push("<li id='" + key + "'>" + val + "</li>");
     });
 
