@@ -14,7 +14,7 @@ window.getUserInfo = async () => {
       console.log("login 데이터입니다", data);
       if (data.status === "200") {
         $("#health").append(
-            `<div class="greeting">
+          `<div class="greeting">
                 <div class="name">${data.body.memberName}</div>
                 <div>님 환영합니다!</div>
            </div>`
@@ -38,20 +38,20 @@ window.getJson = async () => {
       const books = data.documents;
       console.log(books);
       $("#health").after(
-          "<div class='sub-title'><img src='../img/magnifying-glass.svg' style='width:30px; height:20px;' alt='logo'/>책 검색 결과</div><div id='book-container'></div>"
+        "<div class='sub-title'><img src='../img/magnifying-glass.svg' style='width:30px; height:20px;' alt='logo'/>책 검색 결과</div><div id='book-container'></div>"
       );
       $.each(books, function (index, item) {
         const thumbnail = `<img class="book-thumbnail" src=${item.thumbnail} alt="/public/images/nothumbnail.svg"/>`;
         const title = `<div class="book-title" style="font-weight: bold;">${wrapText(
-            item.title
+          item.title
         )}</div>`;
-        const content = `<div class="book-content">내용 ${wrapText(
-            item.contents
+        const content = `<div class="book-content">내용: ${wrapText(
+          item.contents
         )}...</div>`;
         const price = `<div class="book-price">가격: ${item.price}</div>`;
         const publisher = `<div class="publisher">출판사: ${item.publisher}</div>`;
         $(
-            "#book-container"
+          "#book-container"
         ).append(`<div class="book" onclick="window.location.href='${item.url}';">
                        ${title} ${publisher} ${price} ${content}
                          </div>`); //
@@ -91,7 +91,7 @@ window.wrapText = (text) => {
 
 // json file
 
-window.getAllEmployees = () => {
+window.getAllMembers = () => {
   console.log("실행");
   $.ajax({
     url: "../json/login3.json",
@@ -99,7 +99,7 @@ window.getAllEmployees = () => {
     success: function (data) {
       $("#health").after("<table id='mytable'></table>");
       $("#mytable").before(
-          "<div class='sub-title'> <img src='../img/person.svg' alt='logo' style='width:30px; height:20px;';/>회원 조회 결과</div>"
+        "<div class='sub-title'> <img src='../img/person.svg' alt='logo' style='width:30px; height:20px;';/>회원 조회 결과</div>"
       );
       $("#mytable").append("<thead class='thead'></thead>");
       $.each(data.members[0], function (key, value) {
@@ -107,13 +107,13 @@ window.getAllEmployees = () => {
       });
       $.each(data.members, function (index, member) {
         $("<tr>")
-            .append(
-                $("<td>").text(member.memberBirth),
-                $("<td>").text(member.memberHeight),
-                $("<td>").text(member.memberWeight),
-                $("<td>").text(member.memberAge)
-            )
-            .appendTo("#mytable");
+          .append(
+            $("<td>").text(member.memberBirth),
+            $("<td>").text(member.memberHeight),
+            $("<td>").text(member.memberWeight),
+            $("<td>").text(member.memberAge)
+          )
+          .appendTo("#mytable");
       });
     },
     error: function (err) {
@@ -126,7 +126,7 @@ window.getAllEmployees = () => {
 window.health = async () => {
   getUserInfo();
   await getJson();
-  await getAllEmployees();
+  await getAllMembers();
 };
 
 health();
