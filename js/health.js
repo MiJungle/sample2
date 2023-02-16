@@ -5,9 +5,23 @@ import "../css/health.css";
 import "../img/magnifying-glass.svg";
 import "../img/person.svg";
 
-window.getUserInfo = async () => {
+window.callGetJson = () => {
+  $.getJSON("../json/health.json", function (data) {
+    var items = [];
+    $.each(data.documents, function (key, val) {
+      items.push("<li id='" + key + "'>" + val + "</li>");
+    });
+
+    $("<ul/>", {
+      class: "my-new-list",
+      html: items.join(""),
+    }).appendTo("#book-container");
+  });
+};
+
+window.getUserInfo = () => {
   // console.log(login1); //json 아예 import 해서 사용하는 방법
-  await $.ajax({
+  $.ajax({
     method: "GET",
     url: loginURL,
     success: function (data) {
@@ -30,8 +44,8 @@ window.getUserInfo = async () => {
 
 const jsonURL = "../json/health.json";
 
-window.getJson = async () => {
-  await $.ajax({
+window.getJson = () => {
+  $.ajax({
     method: "GET",
     url: jsonURL,
     success: function (data) {
@@ -125,6 +139,7 @@ window.getAllMembers = () => {
 
 window.health = async () => {
   getUserInfo();
+  callGetJson();
   await getJson();
   await getAllMembers();
 };

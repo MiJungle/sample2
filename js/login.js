@@ -13,6 +13,7 @@ window.sendLoginInfo = () => {
     console.log("error");
   }
 };
+
 window.getLoginInfo = (jsonData) => {
   console.log("함수가 호출되었습니다.");
   const status = JSON.parse(jsonData);
