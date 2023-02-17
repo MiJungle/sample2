@@ -19,7 +19,7 @@ window.postData = async (url = "", data = {}) => {
   return response.json();
 };
 // "https://devapi.secondwind.co.kr:443//api/v1/auth/login"
-postData(`/proxy//api/v1/auth/login`, {
+postData(`/proxy`, {
   memberId: "mpsdev",
   memberPw: "qaz123!@",
   pushToken: "",
