@@ -17,6 +17,7 @@ window.postData = async (url = "", data = {}) => {
     },
     body: JSON.stringify(data),
   });
+  console.log("api 호출", response);
   return response.json();
 };
 // "https://devapi.secondwind.co.kr:443//api/v1/auth/login"
