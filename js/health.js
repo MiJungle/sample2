@@ -5,6 +5,28 @@ import "../css/health.css";
 import "../img/magnifying-glass.svg";
 import "../img/person.svg";
 
+window.postData = async (url = "", data = {}) => {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      svcInfo:
+        "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: JSON.stringify(data),
+  });
+  return response.json();
+};
+
+postData("https://devapi.secondwind.co.kr:443//api/v1/auth/login", {
+  memberId: "mpsdev",
+  memberPw: "qaz123!@",
+  pushToken: "",
+}).then((data) => {
+  console.log("login api 호출", data);
+});
+
 window.callGetJson = () => {
   console.log("callGetJson");
   $.getJSON("../json/health.json", function (data) {
@@ -84,25 +106,26 @@ window.wrapText = (text) => {
 };
 
 // const getUserInfo = () => {
-//   $.ajax({
-//     method: "POST",
-//     url: URL,
-//     headers: {
-//       svcInfo:
-//         "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
-//     },
-//     data: {
-//       memberId: "mpsdev",
-//       memberPw: "qaz123!@",
-//       pushToken: "",
-//     },
-//     success: function (data) {
-//       console.log("api", data);
-//     },
-//     error: function () {
-//       alert("failed");
-//     },
-//   });
+
+$.ajax({
+  method: "POST",
+  url: "https://devapi.secondwind.co.kr:443//api/v1/auth/login",
+  headers: {
+    svcInfo:
+      "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
+  },
+  data: {
+    memberId: "mpsdev",
+    memberPw: "qaz123!@",
+    pushToken: "",
+  },
+  success: function (data) {
+    console.log("api", data);
+  },
+  error: function () {
+    alert("failed");
+  },
+});
 // };
 
 // json file
