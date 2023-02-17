@@ -8,6 +8,7 @@ import "../img/person.svg";
 window.postData = async (url = "", data = {}) => {
   const response = await fetch(url, {
     method: "POST",
+    mode: "no-cors",
     headers: {
       svcInfo:
         "KY2Fbb0LWAWB54JDX1A/UlvQ8sIxSltNkXUum3GQYFL2VTGb2CBpJ3kNnCRG8EdtqjVed1CP+esBBC9dkWFvrNOGAmE5zjsVvr0lV2MvGnE=",
@@ -18,8 +19,8 @@ window.postData = async (url = "", data = {}) => {
   });
   return response.json();
 };
-
-postData("https://devapi.secondwind.co.kr:443//api/v1/auth/login", {
+// "https://devapi.secondwind.co.kr:443//api/v1/auth/login"
+postData("/api/postreq", {
   memberId: "mpsdev",
   memberPw: "qaz123!@",
   pushToken: "",
