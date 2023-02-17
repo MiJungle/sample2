@@ -1,4 +1,4 @@
 [[redirects]]
-from = "/api/postReq"
+from = "/proxy/*"
 to = "https://devapi.secondwind.co.kr"
 status = 200
