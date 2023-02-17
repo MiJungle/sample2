@@ -1,4 +1,1 @@
-[[redirects]]
-from = "/api/postReq"
-to = "https://devapi.secondwind.co.kr:443//:splat"
-status = 200
+https://chipper-blini-76e4ec.netlify.app/template/health.html https://devapi.secondwind.co.kr:443//:splat
