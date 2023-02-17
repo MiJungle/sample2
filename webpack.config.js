@@ -85,11 +85,17 @@ const config = {
       // Learn more about loaders from https://webpack.js.org/loaders/
     ],
   },
+  devServer: {
+    proxy: {
+      "/api/postReq": "https://devapi.secondwind.co.kr:443//:splat",
+    },
+  },
 };
 
 // module.exports = {
 //   plugins: [new MiniCssExtractPlugin()],
 // };
+
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
