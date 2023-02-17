@@ -24,8 +24,14 @@ const config = {
     filename: "js/[name].js",
   },
   devServer: {
-    open: true,
-    host: "localhost",
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    proxy: {
+      "/api": {
+        target: "https://devapi.secondwind.co.kr",
+        secure: false,
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -84,11 +90,6 @@ const config = {
       // Add your rules for custom modules here
       // Learn more about loaders from https://webpack.js.org/loaders/
     ],
-  },
-  devServer: {
-    proxy: {
-      "/api/postReq": "https://devapi.secondwind.co.kr",
-    },
   },
 };
 

@@ -20,7 +20,7 @@ window.postData = async (url = "", data = {}) => {
   return response.json();
 };
 // "https://devapi.secondwind.co.kr:443//api/v1/auth/login"
-postData("https://devapi.secondwind.co.kr:443//api/v1/auth/login", {
+postData("/api/v1/auth/login", {
   memberId: "mpsdev",
   memberPw: "qaz123!@",
   pushToken: "",
@@ -28,21 +28,21 @@ postData("https://devapi.secondwind.co.kr:443//api/v1/auth/login", {
   console.log("login api 호출", data);
 });
 
-window.callGetJson = () => {
-  console.log("callGetJson");
-  $.getJSON("../json/health.json", function (data) {
-    var items = [];
-    $.each(data.documents[0], function (key, val) {
-      console.log(key, val);
-      items.push("<li id='" + key + "'>" + val + "</li>");
-    });
-
-    $("<ul/>", {
-      class: "my-new-list",
-      html: items.join(""),
-    }).appendTo("#health");
-  });
-};
+// window.callGetJson = () => {
+//   console.log("callGetJson");
+//   $.getJSON("../json/health.json", function (data) {
+//     var items = [];
+//     $.each(data.documents[0], function (key, val) {
+//       console.log(key, val);
+//       items.push("<li id='" + key + "'>" + val + "</li>");
+//     });
+//
+//     $("<ul/>", {
+//       class: "my-new-list",
+//       html: items.join(""),
+//     }).appendTo("#health");
+//   });
+// };
 
 window.getUserInfo = () => {
   // console.log(login1); //json 아예 import 해서 사용하는 방법
