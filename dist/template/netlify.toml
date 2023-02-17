@@ -1,0 +1,4 @@
+[[redirects]]
+from = "/api/postreq"
+to = "https://devapi.secondwind.co.kr:443//:splat"
+status = 200
