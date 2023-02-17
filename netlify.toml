@@ -1,4 +1,4 @@
 [[redirects]]
-from = "/api/postreq"
+from = "/api/postReq"
 to = "https://devapi.secondwind.co.kr"
 status = 200
