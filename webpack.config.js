@@ -24,13 +24,10 @@ const config = {
     filename: "js/[name].js",
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
+    open: true,
+    host: "localhost",
     proxy: {
-      "/api": {
-        target: "https://devapi.secondwind.co.kr",
-        secure: false,
-      },
+      "/api": "https://devapi.secondwind.co.kr//api/v1/auth/login",
     },
   },
   plugins: [

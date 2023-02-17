@@ -165,7 +165,6 @@ window.getAllMembers = () => {
 
 window.health = async () => {
   getUserInfo();
-  callGetJson();
   await getJson();
   await getAllMembers();
 };
