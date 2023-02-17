@@ -87,7 +87,7 @@ const config = {
   },
   devServer: {
     proxy: {
-      "/api/postReq": "https://devapi.secondwind.co.kr:443//:splat",
+      "/api/postReq": "https://devapi.secondwind.co.kr",
     },
   },
 };
